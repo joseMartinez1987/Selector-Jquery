@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  </head>
+  <style>
+  	hr {
+  		margin-top:50px;
+  	}
+  	.respuesta {
+  	margin-top:10px;
+	width:12%;
+	height:15px;
+	
+	border:solid 1px grey;
+  	}
+  	.box p {	
+  		
+  		margin-left:100px;
+  	}
+
+
+  </style>
+  <body>
+
+                   <!--Ejercicio 1-->
+<form  novalidate="">
+	<input type="text" id="color" value="">
+		<button id="button" class="change-color">change color</button> 
+</form>
+<hr>
+
+                <!--Ejercicio 2 -->
+	<input type="number" class="peso" placeholder="ingrese su peso" value="">
+	<input type="number" class="altura" placeholder="ingrese su tamaño" value="">
+	<input type="submit" class="enviar">
+
+<div class="box"><p class="respuesta"></p></div>
+<hr>
+
+                  <!--Ejercicio 3 -->
+
+<input type="number" class="num">
+<button class="boton">Calcular IVA</button>
+<input type="number" class="result">
+<hr>
+
+              <!--EJercicio 4 -->
+<p style="margin:0" >ingrese nombre</p>
+<input type="text" name="nombre">
+<p style="margin:0" >ingrese apellido</p>
+<input type="text" name="apellido">
+<button class="concat">unir nombre  apellido</button>
+<input type="text" class="nombre_completo">
+
+
+
+
+<script>
+$("#button").click(function(event){
+	event.preventDefault();
+	var paint = $("#color").val()
+	$("body").css("background-color",paint);
+})
+
+//2
+$(".enviar").on("click", function(){
+   let anwser= $(".respuesta").append($(".altura").val() * 2 / $(".peso").val());
+    
+
+    console.log($(".peso").val() * 2);
+    console.log($(".altura").val());
+})
+
+//3
+
+$(".boton").on("click", function(){
+  let number = parseInt($(".num").val());
+ parseInt($(".result").val(number + (number * 19 / 100)));
+  console.log( typeof(number));
+
+  })
+
+  // 4
+  $(".concat").on("click", function(){
+   let nombre =  $("input[name='nombre']"). val()
+   let apellido = $("input[name='apellido']").val();
+   $(".nombre_completo").val(nombre + " " + apellido);
+  
+    
+  })
+
+      
+</script>
+
+  </body>
+</html>
